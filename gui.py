@@ -20,14 +20,25 @@ while True:
 			homeWindow.Hide()
 			if league == 'NFL':
 				while True:
-					nflWindow = pL.init_nflPage()
-					stack.push(nflWindow)
-					nflButton, nflValues = nflWindow.Read()
-					if nflButton is None:
+					nflHubWindow = pL.init_nflPage()
+					stack.push(nflHubWindow)
+					nflHubButton, nflHubValues = nflHubWindow.Read()
+					if nflHubButton is None:
 						stack.pop()
 						prevWindow = stack.peek()
 						prevWindow.UnHide()
 						break
+					if nflHubButton == 'Player Stats':
+						nflHubWindow.Hide()
+						while True:
+							nflPlayerWindow = pL.init_nflPlayerPage()
+							stack.push(nflPlayerWindow)
+							nflPlayerButton, nflPlayerValues = nflPlayerWindow.Read()
+							if nflPlayerButton is None:
+								stack.pop()
+								prevWindow = stack.peek()
+								prevWindow.UnHide()
+								break
 
 
 

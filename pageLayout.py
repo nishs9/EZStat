@@ -37,8 +37,7 @@ def init_nflPage():
             standingsDict[div] = data
 
     ##sg.SetOptions(element_padding=(0, 0))
-    print(standingsDict)
-    
+
     nfcNorth = [[sg.Text('NFC North:')], [sg.Table(values=standingsDict['NFC North'],
                             headings=header_list,
                             max_col_width=10,
@@ -65,7 +64,7 @@ def init_nflPage():
 
     nfcWest = [[sg.Text('NFC West:')], [sg.Table(values=standingsDict['NFC West'],
                             headings=header_list,
-                            max_col_width=10,
+                            max_col_width=13,
                             auto_size_columns=True,
                             justification='left',
                             alternating_row_color='lightblue',
@@ -113,3 +112,13 @@ def init_nflPage():
     nflWindow = sg.Window('NFL Hub').Layout(nflLayout)
 
     return nflWindow
+
+def init_nflPlayerPage():
+    layout = [
+    [sg.Text('NFL Player Stats', size = (20, 1), font = ('Helvetica', 40))],
+    [sg.Text('Search NFL Players: '), sg.InputText(), sg.Button('Search')]
+    ]
+
+    window = sg.Window('NFL Player Stats').Layout(layout)
+
+    return window
