@@ -6,7 +6,7 @@ import csv
 def getLatestStandings():
     try:
         response = requests.get(
-            url='https://api.mysportsfeeds.com/v2.1/pull/nfl/2018-2019-regular/standings.json',
+            url='https://api.mysportsfeeds.com/v2.1/pull/nfl/latest/standings.json',
             params={
                 "fordate": "20190723"
             },
@@ -47,4 +47,3 @@ def getLatestStandings():
                 csvFile.writerow(divDict[j])
 
 getLatestStandings()
-
